@@ -1,8 +1,10 @@
-import 'package:crafty_bay/app_colors.dart';
-import 'package:crafty_bay/app_routes.dart';
-import 'package:crafty_bay/app_theme.dart';
-import 'package:crafty_bay/ui/screen/splash_screen.dart';
+import 'package:crafty_bay/app/app_colors.dart';
+import 'package:crafty_bay/app/app_routes.dart';
+import 'package:crafty_bay/app/app_theme.dart';
+
 import 'package:flutter/material.dart';
+
+import '../features/ui/screen/splash_screen.dart';
 
 class CraftyBay extends StatefulWidget {
   const CraftyBay({super.key});
