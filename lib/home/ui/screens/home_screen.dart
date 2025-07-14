@@ -1,8 +1,10 @@
+
 import 'package:crafty_bay/app/asset_paths.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../widgets/app_bar_icon_button.dart';
+import '../widgets/home_carousel_slider.dart';
 import '../widgets/product_search_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,12 +25,22 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             const SizedBox(height: 16,),
-            ProductSearchBar()
+
+            ProductSearchBar(),
+            const SizedBox(height: 16,),
+            HomeCarouselSlider(),
+            const SizedBox(height: 16,),
+            _buildSectionHeader(title: 'Catagories', onTapSeeAll: () {}),
+            _buildSectionHeader(title: 'Popular', onTapSeeAll: () {}),
+            _buildSectionHeader(title: 'Speacial', onTapSeeAll: () {}),
+            _buildSectionHeader(title: 'New', onTapSeeAll: () {}),
+
           ],
         ),
       ),
     );
   }
+
 
 
 
@@ -48,5 +60,20 @@ class _HomeScreenState extends State<HomeScreen> {
       //title: Text('home'),
     );
   }
+
+  Widget _buildSectionHeader({required String title,required VoidCallback onTapSeeAll}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(title,
+          style:Theme.of(context).textTheme.titleSmall,),
+        TextButton(
+            onPressed: onTapSeeAll, child: Text('See all')),
+      ],
+    );
+  }
+
 }
+
+
 
