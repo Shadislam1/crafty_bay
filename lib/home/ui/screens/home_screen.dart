@@ -1,8 +1,11 @@
 
 import 'package:crafty_bay/app/asset_paths.dart';
+import 'package:crafty_bay/features/common/ui/controllers/main_bottom_nav_controller.dart';
 import 'package:crafty_bay/features/product/ui/screens/product_category_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../widgets/app_bar_icon_button.dart';
 import '../widgets/home_carousel_slider.dart';
@@ -11,7 +14,7 @@ import '../widgets/product_search_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
-  static final name = '/home';
+
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -22,25 +25,27 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          children: [
-            const SizedBox(height: 16,),
-
-            ProductSearchBar(),
-            const SizedBox(height: 16,),
-            HomeCarouselSlider(),
-            const SizedBox(height: 16,),
-            _buildSectionHeader(title: 'Catagories', onTapSeeAll: () {
-              Navigator.pushNamed(context, ProductCategoryScreen.name);
-            }),
-            _getCategoryList(),
-            _buildSectionHeader(title: 'Popular', onTapSeeAll: () {}),
-            _buildSectionHeader(title: 'Speacial', onTapSeeAll: () {}),
-            _buildSectionHeader(title: 'New', onTapSeeAll: () {}),
-
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              const SizedBox(height: 16,),
+        
+              ProductSearchBar(),
+              const SizedBox(height: 16,),
+              HomeCarouselSlider(),
+              const SizedBox(height: 16,),
+              _buildSectionHeader(title: 'Catagories', onTapSeeAll: () {
+                Get.find<MainBottomNavController>().moveToCategory();
+              }),
+              _getCategoryList(),
+              _buildSectionHeader(title: 'Popular', onTapSeeAll: () {}),
+              _buildSectionHeader(title: 'Speacial', onTapSeeAll: () {}),
+              _buildSectionHeader(title: 'New', onTapSeeAll: () {}),
+        
+            ],
+          ),
         ),
       ),
     );
