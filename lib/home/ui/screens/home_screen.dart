@@ -1,4 +1,5 @@
 
+import 'package:crafty_bay/app/app_colors.dart';
 import 'package:crafty_bay/app/asset_paths.dart';
 import 'package:crafty_bay/features/common/ui/controllers/main_bottom_nav_controller.dart';
 import 'package:crafty_bay/features/product/ui/screens/product_category_screen.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../../features/common/ui/widgets/product_card.dart';
 import '../widgets/app_bar_icon_button.dart';
 import '../widgets/home_carousel_slider.dart';
 import '../../../features/common/ui/widgets/product_category_item.dart';
@@ -41,8 +43,12 @@ class _HomeScreenState extends State<HomeScreen> {
               }),
               _getCategoryList(),
               _buildSectionHeader(title: 'Popular', onTapSeeAll: () {}),
+              _getPopularProduct(),
               _buildSectionHeader(title: 'Speacial', onTapSeeAll: () {}),
+              _getSpecialProduct(),
               _buildSectionHeader(title: 'New', onTapSeeAll: () {}),
+              _getNewProduct(),
+              const SizedBox(height: 8,),
         
             ],
           ),
@@ -51,8 +57,47 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  Widget _getPopularProduct(){
 
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+        child: Row(
+          spacing: 8,
+          children: [1,2,3,4].map((e)=>ProductCard()).toList()),
+        );
 
+  }
+
+  Widget _getSpecialProduct(){
+
+    return SizedBox(
+      height: 190,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: 10,
+
+        itemBuilder: (context,index){
+
+          return ProductCard();
+      }
+        ,
+        separatorBuilder: ( context,  index) {
+          return SizedBox(width: 8,);
+        }, ),
+    );
+
+  }
+
+  Widget _getNewProduct(){
+
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+          spacing: 8,
+          children: [1,2,3,4,5].map((e)=>ProductCard()).toList()),
+    );
+
+  }
 
   AppBar _buildAppBar() {
     return AppBar(
@@ -97,6 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
 
 
 
