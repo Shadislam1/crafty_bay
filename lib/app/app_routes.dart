@@ -1,6 +1,7 @@
 
 
 import 'package:crafty_bay/features/common/ui/screen/main_bottom_nav_screen.dart';
+import 'package:crafty_bay/features/product/ui/screens/product_details_screen.dart';
 
 import 'package:crafty_bay/features/product/ui/screens/product_list_screen.dart';
 import 'package:crafty_bay/features/wishlist/ui/screen/wish_list.dart';
@@ -25,6 +26,9 @@ class AppRoutes{
     }else if(settings.name == ProductListScreen.name){
       final String category = settings.arguments as String;
       screenWidget = ProductListScreen(category: category);
+    }else if(settings.name == ProductDetailsScreen.name){
+      final String productId = settings.arguments as String;
+      screenWidget = ProductDetailsScreen(productId: productId);
     }
     return MaterialPageRoute(builder: (context)=> screenWidget);
 
