@@ -2,7 +2,7 @@ import 'package:crafty_bay/features/common/ui/controllers/main_bottom_nav_contro
 import 'package:crafty_bay/features/product/ui/screens/product_category_screen.dart';
 import 'package:crafty_bay/features/wishlist/ui/screen/wish_list.dart';
 import 'package:crafty_bay/home/ui/screens/home_screen.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 

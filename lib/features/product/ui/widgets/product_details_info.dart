@@ -1,3 +1,4 @@
+import 'package:crafty_bay/features/product/ui/screens/reviews_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../app/app_colors.dart';
@@ -38,7 +39,9 @@ class productDetailsInfo extends StatelessWidget {
 
                 ],
               ),
-              TextButton(onPressed: (){}, child: Text('Reviews')),
+              TextButton(onPressed: (){
+                Navigator.pushNamed(context, ReviewsPage.name);
+              }, child: Text('Reviews')),
               Card(
                 color: AppColors.themeColor,
                 shape: RoundedRectangleBorder(

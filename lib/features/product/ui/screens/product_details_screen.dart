@@ -9,7 +9,7 @@ import '../widgets/product_details_info.dart';
 class ProductDetailsScreen extends StatefulWidget {
   const ProductDetailsScreen({super.key, required this.productId});
 
-  static const String name = '/product- details';
+  static const String name = '/product-details';
 
   final String  productId;
 
@@ -72,5 +72,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         );
   }
 }
+
+
+
+
 
 
