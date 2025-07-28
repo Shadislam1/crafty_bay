@@ -1,3 +1,4 @@
+import 'package:crafty_bay/features/cart/ui/screens/cart_screen.dart';
 import 'package:crafty_bay/features/common/ui/controllers/main_bottom_nav_controller.dart';
 import 'package:crafty_bay/features/product/ui/screens/product_category_screen.dart';
 import 'package:crafty_bay/features/wishlist/ui/screen/wish_list.dart';
@@ -17,7 +18,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
   final List<Widget> _screen = [
     HomeScreen(),
     ProductCategoryScreen(),
-    ProductCategoryScreen(),
+    CartScreen(),
     WishListScreen(),
   ];
   @override
